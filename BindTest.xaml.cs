@@ -1,9 +1,10 @@
-﻿using System.Windows;
+﻿
 using System.Windows.Controls;
 
 namespace Test;
 
-public partial class BindTest : Window
+//使用prism包实现双向绑定
+public partial class BindTest
 {
     public BindTest()
     {
