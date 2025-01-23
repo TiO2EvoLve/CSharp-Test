@@ -1,5 +1,5 @@
 ﻿
-public class Page2ViewModel : BindableBase
+public class InputValue : BindableBase
 {
     private string _input;
     public string Input

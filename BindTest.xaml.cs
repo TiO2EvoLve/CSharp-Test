@@ -1,5 +1,6 @@
 ﻿
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Test;
 
@@ -9,16 +10,16 @@ public partial class BindTest
     public BindTest()
     {
         InitializeComponent();
-        DataContext = new Page2ViewModel();
+        DataContext = new InputValue();
     }
     private void Text_OnTextChanged(object sender, TextChangedEventArgs e)
     {
-        var viewModel = DataContext as Page2ViewModel;
+        var viewModel = DataContext as InputValue;
         if (viewModel != null)
         {
-            string inputValue = viewModel.Input;
-            Text2.Text = inputValue;
-            Text3.Text = inputValue;
+            Console.WriteLine(viewModel.Input);
+            
         }
     }
+    
 }

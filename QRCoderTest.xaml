@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
         
         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBox Width="200" x:Name="TextBox" Text="输入要生成的文字"></TextBox>
+            <TextBox Width="200" x:Name="TextBox"></TextBox>
             <Button Width="80" Click="ButtonBase_OnClick" Height="40" Margin="10,0,0,0">生成二维码</Button>
             <Button x:Name="savebutton" IsEnabled="False" Width="80" Click="Save" Height="40" Style="{StaticResource ButtonSuccess}" Margin="10,0,0,0">保存二维码</Button>
         </StackPanel>

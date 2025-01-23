@@ -14,22 +14,11 @@ public partial class JsonTest
 
     private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
     {
-        string json;
-        //打开文件选择对话框
-         Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog
-         {
-             Filter = "json文件|*.json",
-             Title = "选择json文件"
-         };
-         if (openFileDialog.ShowDialog() == true)
-         {
-             if (openFileDialog.FileName == "") return;
-             //读取文件内容
-             json = System.IO.File.ReadAllText(openFileDialog.FileName);
-         }else return;
+        string projectDirectory = System.IO.Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent.Parent.FullName;
+        string filePath = System.IO.Path.Combine(projectDirectory, "../Files/test.json");
          
         // 解析 JSON 字符串为 JObject
-        JObject jsonObj = JObject.Parse(json);
+        JObject jsonObj = JObject.Parse(filePath);
 
         // 查询：获取某个属性
         Console.WriteLine("Name: " + jsonObj["project"]?["name"]);
