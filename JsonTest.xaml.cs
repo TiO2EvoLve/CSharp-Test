@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Windows;
 using Newtonsoft.Json.Linq;
 
@@ -30,7 +31,7 @@ public partial class JsonTest
         jsonObj["project"]!["country"] = "USA";
             
         //删除某个属性
-        //jsonObj["project"]["name"].Parent.Remove();
+        jsonObj["project"]["name"].Parent.Remove();
             
         // 将 JObject 转换回 JSON 字符串
         string modifiedJson = jsonObj.ToString();
