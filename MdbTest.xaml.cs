@@ -4,7 +4,7 @@ using Test.Tool;
 
 namespace Test;
 
-public partial class MdbTest : Page
+public partial class MdbTest : Window
 {
     public MdbTest()
     {
@@ -13,8 +13,8 @@ public partial class MdbTest : Page
 
     private void MdbFileTest(object sender, RoutedEventArgs e)
     {
-        string sql = "Select SUM From kahao";
-        var select = MdbTool.Select(sql);
+        string sql = "Select NUM From kahao";
+        List<string> select = MdbTool.Select(sql);
 
         foreach (var item in select)
         {
