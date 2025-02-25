@@ -12,9 +12,6 @@
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
         </Grid.RowDefinitions>
         
         <StackPanel VerticalAlignment="Center">
@@ -29,9 +26,6 @@
         </StackPanel>
         <StackPanel Grid.Row="2">
             <hc:TextBox x:Name="Text2" Text="{Binding Input, Mode=TwoWay}" Height="40" Width="200" ></hc:TextBox>
-        </StackPanel>
-        <StackPanel Grid.Row="3" >
-            <TextBlock x:Name="Text3" Height="40" Width="200" Text="{Binding Input, Mode=TwoWay}" TextAlignment="Center" Foreground="Red" FontSize="15px"></TextBlock>
         </StackPanel>
     </Grid>
 </Window>

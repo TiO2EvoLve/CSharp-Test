@@ -1,7 +1,5 @@
 ﻿
-using System;
 using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace Test;
 
@@ -19,7 +17,6 @@ public partial class BindTest
         if (viewModel != null)
         {
             Console.WriteLine(viewModel.Input);
-            
         }
     }
     
