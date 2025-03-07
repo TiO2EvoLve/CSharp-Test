@@ -1,5 +1,7 @@
 using System.Windows;
 using System.Windows.Controls;
+using Microsoft.Win32;
+using SteamDatabase.ValvePak;
 using Test.ViewModels;
 
 namespace Test;
@@ -37,6 +39,24 @@ public partial class FileTreeTest : Window
                 // 动态加载子节点
                 item.LoadChildren();
             }
+        }
+    }
+
+    private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+    {
+        //选择路径再显示其文件树
+        var openFolderDialog = new OpenFolderDialog();
+        if (openFolderDialog.ShowDialog() == true)
+        {
+            var rootDirectory = new FileSystemItem
+            {
+                Name = openFolderDialog.FolderName,
+                FullPath = openFolderDialog.FolderName,
+                IsDirectory = true
+            };
+            rootDirectory.LoadChildren(); // 加载初始子节点
+            FileTree.Items.Clear();
+            FileTree.Items.Add(rootDirectory);
         }
     }
 }

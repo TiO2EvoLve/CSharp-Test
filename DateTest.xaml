@@ -4,18 +4,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:Test"
+        xmlns:system="clr-namespace:System;assembly=System.Runtime"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="DateTest" Height="450" Width="800">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        
-        <StackPanel HorizontalAlignment="Center" Margin="10" Orientation="Horizontal">
-            <TextBlock>当前时间</TextBlock>
-            <TextBlock x:Name="time_text"></TextBlock>
+  
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <hc:DateTimePicker SelectedDateTime="{x:Static system:DateTime.Now}" Width="200" x:Name="TimePicker"/>
+            <TextBox Text="1" x:Name="day" Width="50" Margin="10,0,10,0"></TextBox>
+            <Button Content="计算时间" Background="MistyRose" Click="ButtonBase_OnClick"/>
         </StackPanel>
         
     </Grid>
