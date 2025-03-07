@@ -5,7 +5,7 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <UseWPF>true</UseWPF>
-        <TargetFramework>net8.0-windows</TargetFramework>
+        <TargetFramework>net9.0-windows</TargetFramework>
         <LangVersion>default</LangVersion>
     </PropertyGroup>
 
@@ -28,16 +28,25 @@
       <PackageReference Include="QRCoder" Version="1.6.0" />
       <PackageReference Include="System.Data.OleDb" Version="9.0.2" />
       <PackageReference Include="ValvePak" Version="2.0.1.107" />
+      <PackageReference Include="ValveResourceFormat" Version="11.1.4050" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="Design\单例模式\" />
       <Folder Include="Files\" />
+      <Folder Include="images\" />
     </ItemGroup>
 
     <ItemGroup>
       <None Remove="Models\dlib_face_recognition_resnet_model_v1.dat" />
       <None Remove="Models\shape_predictor_68_face_landmarks.dat" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="images\File.png" />
+      <Resource Include="images\File.png" />
+      <None Remove="images\Folder.png" />
+      <Resource Include="images\Folder.png" />
     </ItemGroup>
 
 </Project>
