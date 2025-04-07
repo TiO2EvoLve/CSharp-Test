@@ -38,7 +38,7 @@ public partial class AffairTest : Window
         // 模拟一个操作
         Console.WriteLine("执行操作1...");
         // 如果这里抛出异常，事务会回滚
-        //throw new Exception("操作1失败");
+        throw new Exception("操作1失败");
     }
 
     static void PerformOperation2()

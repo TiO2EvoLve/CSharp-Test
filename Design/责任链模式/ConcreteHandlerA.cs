@@ -1,6 +1,9 @@
-namespace Test.Design.Chain_of_Responsibility;
+
 
 // 具体处理者类A
+
+using Test.Design.Chain_of_Responsibility;
+
 public class ConcreteHandlerA : AbstractHandler
 {
     public override object Handle(object request)

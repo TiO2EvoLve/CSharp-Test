@@ -17,7 +17,6 @@
             <Border Height="300" Width="300" HorizontalAlignment="Center" Margin="10" BorderThickness="1" BorderBrush="Gray">
                 <Image x:Name="DisplayImage"  HorizontalAlignment="Center" VerticalAlignment="Center" />
             </Border>
-            
         </Grid>
     </Grid>
 </Window>

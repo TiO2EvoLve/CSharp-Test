@@ -39,7 +39,7 @@ public partial class ImageTest : Window
 
                 // 创建水印文本
                 FormattedText watermarkText = new FormattedText(
-                    "Watermark",
+                    "TiO2",
                     System.Globalization.CultureInfo.CurrentCulture,
                     FlowDirection.LeftToRight,
                     new Typeface("Arial"),
