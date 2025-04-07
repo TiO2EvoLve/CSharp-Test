@@ -6,10 +6,12 @@ namespace Test;
 
 public partial class DataBase : Window
 {
+    
     public DataBase()
     {
         InitializeComponent();
     }
+    
     List<User> Users = new();
     
     private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
