@@ -1,6 +1,5 @@
 using System.Windows;
 using Test.Design;
-using Test.Design.Chain_of_Responsibility;
 using Test.Design.Factory;
 using Test.Design.建造者模式;
 
