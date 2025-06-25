@@ -39,6 +39,7 @@
 
     <ItemGroup>
       <Folder Include="Design\单例模式\" />
+      <Folder Include="Design\观察者模式\" />
       <Folder Include="images\" />
     </ItemGroup>
 
@@ -47,6 +48,12 @@
       <None Remove="Models\shape_predictor_68_face_landmarks.dat" />
       <None Update="Files\tomltest.toml">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="Files\test.mdb">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="Files\test.json">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
     </ItemGroup>
 

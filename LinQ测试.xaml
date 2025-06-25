@@ -1,0 +1,27 @@
+﻿<Window x:Class="Test.LinQ测试"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"
+        Title="LinQTest" Height="450" Width="800">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+            <Button Click="筛选" Style="{StaticResource ButtonSuccess}" Content="筛选" Height="40" Width="80"/>
+            <Button Margin="5,0,0,0" Click="操作" Style="{StaticResource ButtonInfo}" Content="操作" Height="40" Width="80"/>
+            <Button Margin="5,0,0,0" Click="排序" Style="{StaticResource ButtonWarning}" Content="排序" Height="40" Width="80"/>
+            <Button Margin="5,0,0,0" Click="分组" Style="{StaticResource ButtonDanger}" Content="分组" Height="40" Width="80"/>
+            <Button Margin="5,0,0,0" Click="连接" Style="{StaticResource ButtonPrimary}" Content="连接" Height="40" Width="80"/>
+            <Button Margin="5,0,0,0" Click="统计" Style="{StaticResource ButtonSuccess}" Content="统计" Height="40" Width="80"/>
+            <Button Margin="5,0,0,0" Click="查找" Style="{StaticResource ButtonInfo}" Content="查找" Height="40" Width="80"/>
+            <Button Margin="5,0,0,0" Click="转换" Style="{StaticResource ButtonWarning}" Content="转换" Height="40" Width="80"/>
+            
+        </StackPanel>
+        
+        <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right">
+            <StackPanel hc:Growl.GrowlParent="True" VerticalAlignment="Top" Margin="0,10,10,10"/>
+        </ScrollViewer>
+    </Grid>
+</Window>
