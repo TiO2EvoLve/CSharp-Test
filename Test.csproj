@@ -6,17 +6,17 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <UseWPF>true</UseWPF>
         <TargetFramework>net9.0-windows</TargetFramework>
-        <LangVersion>default</LangVersion>
+        <LangVersion>latestmajor</LangVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-      <PlatformTarget>AnyCPU</PlatformTarget>
+      <PlatformTarget>x64</PlatformTarget>
       <Prefer32bit>false</Prefer32bit>
       <Optimize>true</Optimize>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-      <PlatformTarget>AnyCPU</PlatformTarget>
+      <PlatformTarget>x64</PlatformTarget>
     </PropertyGroup>
 
     <ItemGroup>
@@ -39,7 +39,6 @@
 
     <ItemGroup>
       <Folder Include="Design\单例模式\" />
-      <Folder Include="Design\观察者模式\" />
       <Folder Include="images\" />
     </ItemGroup>
 

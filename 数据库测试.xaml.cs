@@ -22,5 +22,6 @@ public partial class 数据库测试 : Window
             Users = context.User.ToList();
         }
         UsersDataGrid.ItemsSource = Users;
+
     }
 }

@@ -2,6 +2,7 @@ using System.Windows;
 using Test.Design;
 using Test.Design.Factory;
 using Test.Design.建造者模式;
+using Test.Design.观察者模式;
 
 namespace Test;
 
@@ -74,5 +75,22 @@ public partial class 设计模式测试 : Window
         // 指挥者指挥建造者构建低端配置电脑
         Computer lowEndComputer = lowEndDirector.Construct();
         Console.WriteLine("Low End Computer: " + lowEndComputer);
+    }
+    private void 观察者模式(object sender, RoutedEventArgs e)
+    {
+        var station = new WeatherStation();
+
+        var display1 = new PhoneDisplay("用户A的手机");
+        var display2 = new PhoneDisplay("用户B的手机");
+
+        display1.Subscribe(station);
+        display2.Subscribe(station);
+
+        station.SetTemperature(25.3f);
+        station.SetTemperature(30.1f);
+
+        display2.Unsubscribe(station);
+
+        station.SetTemperature(22.8f);
     }
 }

@@ -29,7 +29,9 @@
             <Button Tag="设计模式" Click="OpenWindow" Style="{StaticResource ButtonBaseStyle}" Content="设计模式" Foreground="Black" Height="40" Width="80"/>
             <Button Tag="Email" Click="OpenWindow" Style="{StaticResource ButtonBaseStyle}" Content="Email" Foreground="Black" Height="40" Width="80"/>
             <Button Tag="Hover" Click="OpenWindow" Style="{StaticResource ButtonBaseStyle}" Content="Hover" Foreground="Black" Height="40" Width="80"/>
-            
+            <Button Tag="二进制转文本" Click="OpenWindow" Style="{StaticResource ButtonBaseStyle}" Content="二进制文本" Foreground="Black" Height="40" Width="80"/>
+            <Button Tag="Test" Click="OpenWindow" Style="{StaticResource ButtonBaseStyle}" Content="测试" Foreground="Black" Height="40" Width="80"/>
+            <Button Tag="反射" Click="OpenWindow" Style="{StaticResource ButtonBaseStyle}" Content="反射" Foreground="Black" Height="40" Width="80"/>
         </UniformGrid>
         
     </Grid>

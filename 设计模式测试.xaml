@@ -12,6 +12,7 @@
             <Button Click="责任链模式">责任链模式</Button>
             <Button Click="简单工厂模式">简单工厂模式</Button>
             <Button Click="建造者模式">建造者模式</Button>
+            <Button Click="观察者模式">观察者模式</Button>
             </StackPanel>
         
     </Grid>
