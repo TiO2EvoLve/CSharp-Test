@@ -27,7 +27,7 @@ public partial class Menu : Window
             case "KeyValue3":
                 new KeyValue3测试().Show(); 
                 break;
-            case "LinQ测试":
+            case "LinQ":
                 new LinQ测试().Show(); 
                 break;
             case "Mdb":
@@ -92,6 +92,9 @@ public partial class Menu : Window
                 break;
             case "进度条":
                 new 进度条测试().Show(); 
+                break;
+            case "文件修改":
+                new 文件修改测试().Show(); 
                 break;
             
             default:

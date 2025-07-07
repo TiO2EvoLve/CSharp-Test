@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         Title="Menu" Height="450" Width="800">
     <Grid>
-        <UniformGrid Columns="10" Rows="10" >
-            <Button Tag="DeepSeek" Click="OpenWindow" Style="{StaticResource ButtonBaseStyle}" Content="DeepSeek" Foreground="Black" Height="40" Width="80"/>
+        <UniformGrid Columns="8" Rows="8" >
+            <Button Tag="DeepSeek" Click="OpenWindow" Style="{StaticResource ButtonBaseStyle}" Content="AI" Foreground="Black" Height="40" Width="80"/>
             <Button Tag="JSON" Click="OpenWindow" Style="{StaticResource ButtonBaseStyle}" Content="JSON" Foreground="Black" Height="40" Width="80"/>
-            <Button Tag="KeyValue3" Click="OpenWindow" Style="{StaticResource ButtonBaseStyle}" Content="KeyValue3" Foreground="Black" Height="40" Width="80"/>
-            <Button Tag="LinQ测试" Click="OpenWindow" Style="{StaticResource ButtonBaseStyle}" Content="LinQ测试" Foreground="Black" Height="40" Width="80"/>
+            <Button Tag="KeyValue3" Click="OpenWindow" Style="{StaticResource ButtonBaseStyle}" Content="Kv3" Foreground="Black" Height="40" Width="80"/>
+            <Button Tag="LinQ" Click="OpenWindow" Style="{StaticResource ButtonBaseStyle}" Content="LinQ" Foreground="Black" Height="40" Width="80"/>
             <Button Tag="Mdb" Click="OpenWindow" Style="{StaticResource ButtonBaseStyle}" Content="Mdb" Foreground="Black" Height="40" Width="80"/>
             <Button Tag="Mvvm" Click="OpenWindow" Style="{StaticResource ButtonBaseStyle}" Content="Mvvm" Foreground="Black" Height="40" Width="80"/>
             <Button Tag="Toml" Click="OpenWindow" Style="{StaticResource ButtonBaseStyle}" Content="Toml" Foreground="Black" Height="40" Width="80"/>
@@ -29,10 +29,11 @@
             <Button Tag="设计模式" Click="OpenWindow" Style="{StaticResource ButtonBaseStyle}" Content="设计模式" Foreground="Black" Height="40" Width="80"/>
             <Button Tag="Email" Click="OpenWindow" Style="{StaticResource ButtonBaseStyle}" Content="Email" Foreground="Black" Height="40" Width="80"/>
             <Button Tag="Hover" Click="OpenWindow" Style="{StaticResource ButtonBaseStyle}" Content="Hover" Foreground="Black" Height="40" Width="80"/>
-            <Button Tag="二进制转文本" Click="OpenWindow" Style="{StaticResource ButtonBaseStyle}" Content="二进制文本" Foreground="Black" Height="40" Width="80"/>
+            <Button Tag="二进制转文本" Click="OpenWindow" Style="{StaticResource ButtonBaseStyle}" Content="二进制" Foreground="Black" Height="40" Width="80"/>
             <Button Tag="Test" Click="OpenWindow" Style="{StaticResource ButtonBaseStyle}" Content="测试" Foreground="Black" Height="40" Width="80"/>
             <Button Tag="反射" Click="OpenWindow" Style="{StaticResource ButtonBaseStyle}" Content="反射" Foreground="Black" Height="40" Width="80"/>
             <Button Tag="进度条" Click="OpenWindow" Style="{StaticResource ButtonBaseStyle}" Content="进度条" Foreground="Black" Height="40" Width="80"/>
+            <Button Tag="文件修改" Click="OpenWindow" Style="{StaticResource ButtonBaseStyle}" Content="文件修改" Foreground="Black" Height="40" Width="80"/>
         </UniformGrid>
         
     </Grid>

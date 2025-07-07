@@ -13,7 +13,7 @@
         
         <Button Style="{StaticResource ButtonPrimary}" Click="ButtonBase_OnClick" VerticalAlignment="Top" Margin="0,10,0,0">查询数据库</Button>
         <StackPanel Grid.Row="1" Margin="20" >
-            <DataGrid Background="Pink" x:Name="UsersDataGrid" AutoGenerateColumns="True"/>
+            <DataGrid Background="LightGray" x:Name="UsersDataGrid" AutoGenerateColumns="True"/>
         </StackPanel>
         
     </Grid>

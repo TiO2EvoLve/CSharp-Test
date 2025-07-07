@@ -1,0 +1,10 @@
+{
+  "UI": true,
+  "Volume": "10",
+  "Pitch": "70",
+  "Loop": true,
+  "Mode": "Once",
+  "Sounds": [
+    "sounds/angle.vsnd"
+  ]
+}
