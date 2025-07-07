@@ -90,6 +90,9 @@ public partial class Menu : Window
             case "反射":
                 new 反射测试().Show(); 
                 break;
+            case "进度条":
+                new 进度条测试().Show(); 
+                break;
             
             default:
                 MessageBox.Show($"未找到窗口: {windowName}");
