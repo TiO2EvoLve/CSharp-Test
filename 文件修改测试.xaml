@@ -17,7 +17,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <!-- 通用控件行 -->
@@ -95,6 +95,13 @@
                        FontWeight="Bold"
                        Content="保存文件"
                        Click="SaveFile"/>
+            <Button Grid.Row="7" HorizontalAlignment="Center" Margin="0,10,0,0"
+                    Width="120" Height="36"
+                    Background="#67C23A"
+                    Foreground="White"
+                    FontWeight="Bold"
+                    Content="打开文件"
+                    Click="OpenFile"/>
         </Grid>
     </Border>
 </Window>

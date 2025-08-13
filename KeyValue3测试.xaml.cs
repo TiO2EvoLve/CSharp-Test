@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.IO;
+using System.Windows;
 using ValveResourceFormat.Serialization.KeyValues;
 
 namespace Test;
@@ -12,8 +13,9 @@ public partial class KeyValue3测试
 
     private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
     {
-        string projectDirectory = System.IO.Directory.GetParent(AppDomain.CurrentDomain.BaseDirectory)?.Parent.Parent.FullName;
-        string filePath = System.IO.Path.Combine(projectDirectory, "../Files/Model.vmdl");
+        
+        string currentDirectory = Environment.CurrentDirectory;
+        string filePath = Path.Combine(currentDirectory, "Files","test.vmdl");
         
         var kv3File = KeyValues3.ParseKVFile(filePath);
         //增加键值对  

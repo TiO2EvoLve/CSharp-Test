@@ -27,20 +27,22 @@ public partial class 文件修改测试
         {
             MessageBox.Show("配置文件不存在，请检查路径。", "错误", MessageBoxButton.OK, MessageBoxImage.Error);
             return;
-        };
+        }
 
         string jsonContent = File.ReadAllText(filePath);
         // 解析 JSON 字符串为 JObject
         JObject jsonObj = JObject.Parse(jsonContent);
         //解析为对象
         var data = jsonObj.ToObject<SoundConfig>();
-        (DataContext as ViewModel).Ui = data.UI;
-        (DataContext as ViewModel).Volume = data.Volume;
-        (DataContext as ViewModel).Pitch = data.Pitch;
-        (DataContext as ViewModel).Loop = data.Loop;
-        (DataContext as ViewModel).Mode = data.Mode;
-        (DataContext as ViewModel).Sounds = data.Sounds != null ? string.Join(",", data.Sounds) : string.Empty;
-        
+        if (data != null)
+        {
+            ((DataContext as ViewModel)!).Ui = data.UI;
+            ((DataContext as ViewModel)!).Volume = data.Volume;
+            ((DataContext as ViewModel)!).Pitch = data.Pitch;
+            ((DataContext as ViewModel)!).Loop = data.Loop;
+            ((DataContext as ViewModel)!).Mode = data.Mode;
+            ((DataContext as ViewModel)!).Sounds = data.Sounds != null ? string.Join(",", data.Sounds) : string.Empty;
+        }
     }
     private void SaveFile(object sender, RoutedEventArgs e)
     {
@@ -87,31 +89,52 @@ public partial class 文件修改测试
     private void SelectFile(object sender, RoutedEventArgs e)
     {
         // 打开文件选择对话框
-        OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog
+        OpenFileDialog openFileDialog = new OpenFileDialog
         {
             Filter = "All Files (*.*)|*.*",
         };
 
         if (openFileDialog.ShowDialog() == true)
         {
-            (DataContext as ViewModel).Sounds = openFileDialog.FileName;
+            ((DataContext as ViewModel)!).Sounds = openFileDialog.FileName;
+        }
+    }
+
+    private void OpenFile(object sender, RoutedEventArgs e)
+    {
+        string currentDirectory = Environment.CurrentDirectory;
+        string filePath = Path.Combine(currentDirectory, "Files", "config", "config.json");
+        if (File.Exists(filePath))
+        {
+            try
+            {
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = filePath,
+                    UseShellExecute = true // 使用系统默认程序打开文件
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("打开文件失败：" + ex.Message, "错误", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
 public partial class ViewModel : ObservableObject
 {
     [ObservableProperty]
-    public bool ui;
+    private bool ui;
     [ObservableProperty]
-    public string volume;
+    private string volume;
     [ObservableProperty]
-    public string pitch;
+    private string pitch;
     [ObservableProperty]
-    public bool loop;
+    private bool loop;
     [ObservableProperty]
-    public string mode;
+    private string mode;
     [ObservableProperty]
-    public string sounds;
+    private string sounds;
     
     public List<string> Modes { get; } =
     [
