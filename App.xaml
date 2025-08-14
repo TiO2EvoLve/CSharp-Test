@@ -2,9 +2,13 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
-             StartupUri="Menu.xaml">
+             StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <ResourceDictionary>
+        <Style TargetType="Window">
+            <Setter Property="WindowStartupLocation" Value="CenterScreen"/>
+        </Style>
+        <ResourceDictionary x:Key="">
+           
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
