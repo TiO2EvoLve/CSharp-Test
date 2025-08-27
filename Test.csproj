@@ -6,7 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <UseWPF>true</UseWPF>
         <TargetFramework>net9.0-windows</TargetFramework>
-        <LangVersion>latestmajor</LangVersion>
+        <LangVersion>preview</LangVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -32,6 +32,9 @@
       <PackageReference Include="Prism.Wpf" Version="9.0.537" />
       <PackageReference Include="QRCoder" Version="1.6.0" />
       <PackageReference Include="System.Data.OleDb" Version="9.0.2" />
+      <PackageReference Include="System.Reactive" Version="6.0.1" />
+      <PackageReference Include="System.Reactive.Linq" Version="6.0.1" />
+      <PackageReference Include="System.Reactive.Windows.Threading" Version="6.0.1" />
       <PackageReference Include="Tommy" Version="3.1.2" />
       <PackageReference Include="ValvePak" Version="2.0.1.107" />
       <PackageReference Include="ValveResourceFormat" Version="11.1.4050" />

@@ -1,7 +1,7 @@
-using System;
-using System.Collections.Generic;
+
 using System.Windows;
 using System.Windows.Controls;
+using Test.Page;
 
 namespace Test
 {
@@ -40,7 +40,8 @@ namespace Test
                 ["Test"] = () => new 测试(),
                 ["反射"] = () => new 反射测试(),
                 ["进度条"] = () => new 进度条测试(),
-                ["文件修改"] = () => new 文件修改测试()
+                ["文件修改"] = () => new 文件修改测试(),
+                ["响应式"] = () => new 响应式()
             };
 
             CreateButtons();
