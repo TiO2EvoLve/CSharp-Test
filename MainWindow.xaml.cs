@@ -1,4 +1,5 @@
 
+using System.Reactive.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Test.Page;
@@ -32,7 +33,6 @@ namespace Test
                 ["数据写入"] = () => new 数据写入测试(),
                 ["数据库"] = () => new 数据库测试(),
                 ["文件树"] = () => new 文件树视图测试(),
-                ["时间"] = () => new 时间测试(),
                 ["绑定"] = () => new 绑定测试(),
                 ["Email"] = () => new 邮件发送测试(),
                 ["Hover"] = () => new 鼠标悬停测试(),
@@ -45,6 +45,7 @@ namespace Test
             };
 
             CreateButtons();
+            
         }
 
         // 自动创建按钮

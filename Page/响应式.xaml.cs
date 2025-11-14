@@ -84,18 +84,42 @@ public partial class 响应式
     {
         LogBox1.Clear();
 
+        var random = new Random();
+        int attemptCount = 0;
+        const int maxAttempts = 5;
+        bool hasSuccess = false;
+
         Observable.Interval(TimeSpan.FromSeconds(1))
-            .Select(i =>
-            {
-                if (i == 3) throw new Exception("模拟错误：i == 3");
-                return i;
-            })
-            .Retry(2) // 出错后最多重试 2 次（即总共最多执行 3 次）
             .ObserveOn(SynchronizationContext.Current!)
+            .TakeWhile(_ => !hasSuccess && attemptCount < maxAttempts)
+            .Do(_ => 
+            {
+                attemptCount++;
+                int randomNumber = random.Next(0, 11);
+                // 确保每次抽取都立即输出
+                LogBox1.AppendText($"第{attemptCount}次尝试: 抽到数字 {randomNumber}");
+                if (randomNumber == 5)
+                {
+                    hasSuccess = true;
+                    LogBox1.AppendText(" - 成功！" + Environment.NewLine);
+                    LogBox1.AppendText($"恭喜！在第{attemptCount}次成功抽到数字5" + Environment.NewLine);
+                }
+                else
+                {
+                   LogBox1.AppendText(" - 失败" + Environment.NewLine);
+                }
+            })
             .Subscribe(
-                value => LogBox1.AppendText($"收到: {value}{Environment.NewLine}"),
-                ex => LogBox1.AppendText($"最终错误: {ex.Message}{Environment.NewLine}"),
-                () => LogBox1.AppendText("完成{Environment.NewLine}")
+                _ => { },
+                ex => LogBox1.AppendText($"最终结果: {ex.Message}" + Environment.NewLine),
+                () => 
+                {
+                    if (!hasSuccess)
+                    {
+                        LogBox1.AppendText($"已达到最大尝试次数{maxAttempts}，未能抽到数字5" + Environment.NewLine);
+                    }
+                    LogBox1.AppendText("抽奖过程结束" + Environment.NewLine);
+                }
             );
     }
 }

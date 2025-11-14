@@ -75,11 +75,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Page Update="Page\时间测试.xaml">
-        <Generator>MSBuild:Compile</Generator>
-        <XamlRuntime>Wpf</XamlRuntime>
-        <SubType>Designer</SubType>
-      </Page>
       <Page Update="Page\绑定测试.xaml">
         <Generator>MSBuild:Compile</Generator>
         <XamlRuntime>Wpf</XamlRuntime>
