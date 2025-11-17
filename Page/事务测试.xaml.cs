@@ -24,7 +24,6 @@ public partial class 事务测试 : Window
                 // 如果所有操作都成功，则提交事务
                 scope.Complete();
             }
-
             Console.WriteLine("事务成功提交！");
         }
         catch (Exception ex)

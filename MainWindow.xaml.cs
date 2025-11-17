@@ -1,5 +1,4 @@
 
-using System.Reactive.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Test.Page;
@@ -37,11 +36,12 @@ namespace Test
                 ["Email"] = () => new 邮件发送测试(),
                 ["Hover"] = () => new 鼠标悬停测试(),
                 ["二进制转文本"] = () => new 二进制转文本(),
-                ["Test"] = () => new 测试(),
+                ["依赖注入"] = () => new 依赖注入测试(),
                 ["反射"] = () => new 反射测试(),
                 ["进度条"] = () => new 进度条测试(),
                 ["文件修改"] = () => new 文件修改测试(),
-                ["响应式"] = () => new 响应式()
+                ["响应式"] = () => new 响应式(),
+                ["Test"] = () => new 测试(),
             };
 
             CreateButtons();
