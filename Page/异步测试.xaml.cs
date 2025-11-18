@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Media;
 
 namespace Test;
@@ -12,6 +9,7 @@ public partial class 异步测试
     {
         InitializeComponent();
     }
+
     private async void Button_OnClick(object sender, RoutedEventArgs e)
     {
         OnReset();
@@ -49,15 +47,11 @@ public partial class 异步测试
                     任务3.Text = "任务三完成";
                     Label3.Background = Brushes.GreenYellow;
                 });
-
             }
         ];
         // 将所有 Action 包装为 Task 并等待完成
-        List<Task> tasks = new List<Task>();
-        foreach (var action in actions)
-        { 
-            tasks.Add(Task.Run(action));
-        }
+        var tasks = new List<Task>();
+        foreach (var action in actions) tasks.Add(Task.Run(action));
         await Task.WhenAny(tasks);
         Console.WriteLine("至少有一个完成");
         await Task.WhenAll(tasks);
@@ -65,6 +59,7 @@ public partial class 异步测试
         text.Text = "已全部完成";
         OnFinish();
     }
+
     private void OnReset()
     {
         text.Text = "开始任务";
@@ -79,8 +74,9 @@ public partial class 异步测试
         Label3.BorderBrush = Brushes.Gainsboro;
         Label1.BorderThickness = new Thickness(1);
         Label2.BorderThickness = new Thickness(1);
-        Label3.BorderThickness = new Thickness(1); 
+        Label3.BorderThickness = new Thickness(1);
     }
+
     private void OnFinish()
     {
         Label1.BorderBrush = Brushes.Gold;

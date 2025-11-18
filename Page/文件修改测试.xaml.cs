@@ -1,7 +1,9 @@
+using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Microsoft.Win32;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Test.ViewModels;
 
@@ -15,13 +17,12 @@ public partial class 文件修改测试
         DataContext = new ViewModel();
         GetData();
     }
-    
+
     private void GetData()
     {
-        
-        string currentDirectory = Environment.CurrentDirectory;
+        var currentDirectory = Environment.CurrentDirectory;
         // 构建文件路径
-        string filePath = Path.Combine(currentDirectory, "Files","config", "config.json");
+        var filePath = Path.Combine(currentDirectory, "Files", "config", "config.json");
         Console.WriteLine($"读取文件路径：{filePath}");
         if (!File.Exists(filePath))
         {
@@ -29,21 +30,22 @@ public partial class 文件修改测试
             return;
         }
 
-        string jsonContent = File.ReadAllText(filePath);
+        var jsonContent = File.ReadAllText(filePath);
         // 解析 JSON 字符串为 JObject
-        JObject jsonObj = JObject.Parse(jsonContent);
+        var jsonObj = JObject.Parse(jsonContent);
         //解析为对象
         var data = jsonObj.ToObject<SoundConfig>();
         if (data != null)
         {
-            ((DataContext as ViewModel)!).Ui = data.UI;
-            ((DataContext as ViewModel)!).Volume = data.Volume;
-            ((DataContext as ViewModel)!).Pitch = data.Pitch;
-            ((DataContext as ViewModel)!).Loop = data.Loop;
-            ((DataContext as ViewModel)!).Mode = data.Mode;
-            ((DataContext as ViewModel)!).Sounds = data.Sounds != null ? string.Join(",", data.Sounds) : string.Empty;
+            (DataContext as ViewModel)!.Ui = data.UI;
+            (DataContext as ViewModel)!.Volume = data.Volume;
+            (DataContext as ViewModel)!.Pitch = data.Pitch;
+            (DataContext as ViewModel)!.Loop = data.Loop;
+            (DataContext as ViewModel)!.Mode = data.Mode;
+            (DataContext as ViewModel)!.Sounds = data.Sounds != null ? string.Join(",", data.Sounds) : string.Empty;
         }
     }
+
     private void SaveFile(object sender, RoutedEventArgs e)
     {
         //保存文件
@@ -69,11 +71,11 @@ public partial class 文件修改测试
         };
 
         // 序列化为 JSON 字符串（带缩进）
-        string json = Newtonsoft.Json.JsonConvert.SerializeObject(config, Newtonsoft.Json.Formatting.Indented);
+        var json = JsonConvert.SerializeObject(config, Formatting.Indented);
 
         // 路径与读取时保持一致
-        string currentDirectory = Environment.CurrentDirectory;
-        string filePath = Path.Combine(currentDirectory, "Files", "config", "config.json");
+        var currentDirectory = Environment.CurrentDirectory;
+        var filePath = Path.Combine(currentDirectory, "Files", "config", "config.json");
         Console.WriteLine("保存路径：" + filePath);
         try
         {
@@ -89,26 +91,22 @@ public partial class 文件修改测试
     private void SelectFile(object sender, RoutedEventArgs e)
     {
         // 打开文件选择对话框
-        OpenFileDialog openFileDialog = new OpenFileDialog
+        var openFileDialog = new OpenFileDialog
         {
-            Filter = "All Files (*.*)|*.*",
+            Filter = "All Files (*.*)|*.*"
         };
 
-        if (openFileDialog.ShowDialog() == true)
-        {
-            ((DataContext as ViewModel)!).Sounds = openFileDialog.FileName;
-        }
+        if (openFileDialog.ShowDialog() == true) (DataContext as ViewModel)!.Sounds = openFileDialog.FileName;
     }
 
     private void OpenFile(object sender, RoutedEventArgs e)
     {
-        string currentDirectory = Environment.CurrentDirectory;
-        string filePath = Path.Combine(currentDirectory, "Files", "config", "config.json");
+        var currentDirectory = Environment.CurrentDirectory;
+        var filePath = Path.Combine(currentDirectory, "Files", "config", "config.json");
         if (File.Exists(filePath))
-        {
             try
             {
-                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                Process.Start(new ProcessStartInfo
                 {
                     FileName = filePath,
                     UseShellExecute = true // 使用系统默认程序打开文件
@@ -118,24 +116,23 @@ public partial class 文件修改测试
             {
                 MessageBox.Show("打开文件失败：" + ex.Message, "错误", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
     }
 }
+
 public partial class ViewModel : ObservableObject
 {
-    [ObservableProperty]
-    private bool ui;
-    [ObservableProperty]
-    private string volume;
-    [ObservableProperty]
-    private string pitch;
-    [ObservableProperty]
-    private bool loop;
-    [ObservableProperty]
-    private string mode;
-    [ObservableProperty]
-    private string sounds;
-    
+    [ObservableProperty] private bool loop;
+
+    [ObservableProperty] private string mode;
+
+    [ObservableProperty] private string pitch;
+
+    [ObservableProperty] private string sounds;
+
+    [ObservableProperty] private bool ui;
+
+    [ObservableProperty] private string volume;
+
     public List<string> Modes { get; } =
     [
         "Random",
@@ -143,4 +140,3 @@ public partial class ViewModel : ObservableObject
         "Order"
     ];
 }
-

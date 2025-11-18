@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Media.Imaging;
 using Microsoft.Win32;
 using QRCoder;
+
 namespace Test;
 
 //使用QRCoder包生成二维码
@@ -15,13 +16,13 @@ public partial class 二维码测试
 
     private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
     {
-        using QRCodeGenerator qrGenerator = new QRCodeGenerator();
-        using QRCodeData qrCodeData = qrGenerator.CreateQrCode(TextBox.Text, QRCodeGenerator.ECCLevel.Q);
-        using (PngByteQRCode qrCode = new PngByteQRCode(qrCodeData))
+        using var qrGenerator = new QRCodeGenerator();
+        using var qrCodeData = qrGenerator.CreateQrCode(TextBox.Text, QRCodeGenerator.ECCLevel.Q);
+        using (var qrCode = new PngByteQRCode(qrCodeData))
         {
-            byte[] qrCodeImage = qrCode.GetGraphic(20);
-            BitmapImage bitmapImage = new BitmapImage();
-            using (MemoryStream ms = new MemoryStream(qrCodeImage))
+            var qrCodeImage = qrCode.GetGraphic(20);
+            var bitmapImage = new BitmapImage();
+            using (var ms = new MemoryStream(qrCodeImage))
             {
                 ms.Position = 0;
                 bitmapImage.BeginInit();
@@ -29,14 +30,16 @@ public partial class 二维码测试
                 bitmapImage.StreamSource = ms;
                 bitmapImage.EndInit();
             }
+
             QrCodeImage.Source = bitmapImage;
         }
+
         savebutton.IsEnabled = true;
     }
 
     private void Save(object sender, RoutedEventArgs e)
     {
-        SaveFileDialog saveFileDialog = new SaveFileDialog
+        var saveFileDialog = new SaveFileDialog
         {
             Filter = "PNG Image|*.png",
             Title = "Save QR Code",
@@ -48,11 +51,12 @@ public partial class 二维码测试
             BitmapEncoder encoder = new PngBitmapEncoder();
             encoder.Frames.Add(BitmapFrame.Create((BitmapImage)QrCodeImage.Source));
 
-            using (FileStream fileStream = new FileStream(saveFileDialog.FileName, FileMode.Create))
+            using (var fileStream = new FileStream(saveFileDialog.FileName, FileMode.Create))
             {
                 encoder.Save(fileStream);
             }
+
             MessageBox.Show("保存成功");
-        } 
+        }
     }
 }

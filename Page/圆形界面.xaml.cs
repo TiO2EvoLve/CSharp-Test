@@ -1,4 +1,5 @@
 using System.Windows;
+using System.Windows.Input;
 
 namespace Test;
 
@@ -8,12 +9,12 @@ public partial class 圆形界面 : Window
     {
         InitializeComponent();
     }
-    
-    private void Grid_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+
+    private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
         DragMove();
     }
-    
+
     private void CloseButton_Click(object sender, RoutedEventArgs e)
     {
         Close();

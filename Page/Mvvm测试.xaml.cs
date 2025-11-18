@@ -11,14 +11,12 @@ public partial class Mvvm测试 : Window
         InitializeComponent();
         DataContext = new VM();
     }
-    
 }
 
 public partial class VM : ObservableObject
 {
-    [ObservableProperty]
-    private string number = "原始文字";
-    
+    [ObservableProperty] private string number = "原始文字";
+
     [RelayCommand]
     public void Button_Click()
     {

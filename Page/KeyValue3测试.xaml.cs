@@ -13,14 +13,13 @@ public partial class KeyValue3测试
 
     private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
     {
-        
-        string currentDirectory = Environment.CurrentDirectory;
-        string filePath = Path.Combine(currentDirectory, "Files","test.vmdl");
-        
+        var currentDirectory = Environment.CurrentDirectory;
+        var filePath = Path.Combine(currentDirectory, "Files", "test.vmdl");
+
         var kv3File = KeyValues3.ParseKVFile(filePath);
         //增加键值对  
-        KVValue kvValue = new KVValue(KVType.STRING, "Cube/test.png");
-        kv3File.Root.AddProperty("test",kvValue);
+        var kvValue = new KVValue(KVType.STRING, "Cube/test.png");
+        kv3File.Root.AddProperty("test", kvValue);
         //根据键输出值
         Console.WriteLine(kv3File.Root.Properties["test"].Value);
         //修改
@@ -29,8 +28,5 @@ public partial class KeyValue3测试
         Console.WriteLine(kv3File.Root.Properties.Remove("test"));
         //查找
         Console.WriteLine(kv3File.Root.Properties.ContainsKey("test"));
-        
     }
-    
-    
 }

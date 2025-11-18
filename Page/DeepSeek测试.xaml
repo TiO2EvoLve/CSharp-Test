@@ -7,16 +7,16 @@
         Title="DeepSeekTest" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
-            <TextBox x:Name="input" Width="500" Text="C#如何输出hello world"></TextBox>
+            <TextBox x:Name="input" Width="500" Text="C#如何输出hello world" />
             <Button Click="ButtonBase_OnClick" Margin="10,0,0,0" Background="Bisque">查询</Button>
         </StackPanel>
-        <TextBlock Grid.Row="1" x:Name="tip" HorizontalAlignment="Center" Foreground="Red"/>
-        <RichTextBox Grid.Row="2" x:Name="output" Margin="10" IsReadOnly="True"></RichTextBox>
-        
+        <TextBlock Grid.Row="1" x:Name="tip" HorizontalAlignment="Center" Foreground="Red" />
+        <RichTextBox Grid.Row="2" x:Name="output" Margin="10" IsReadOnly="True" />
+
     </Grid>
 </Window>

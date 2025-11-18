@@ -85,17 +85,17 @@ public partial class 响应式
         LogBox1.Clear();
 
         var random = new Random();
-        int attemptCount = 0;
+        var attemptCount = 0;
         const int maxAttempts = 5;
-        bool hasSuccess = false;
+        var hasSuccess = false;
 
         Observable.Interval(TimeSpan.FromSeconds(1))
             .ObserveOn(SynchronizationContext.Current!)
             .TakeWhile(_ => !hasSuccess && attemptCount < maxAttempts)
-            .Do(_ => 
+            .Do(_ =>
             {
                 attemptCount++;
-                int randomNumber = random.Next(0, 11);
+                var randomNumber = random.Next(0, 11);
                 // 确保每次抽取都立即输出
                 LogBox1.AppendText($"第{attemptCount}次尝试: 抽到数字 {randomNumber}");
                 if (randomNumber == 5)
@@ -106,18 +106,15 @@ public partial class 响应式
                 }
                 else
                 {
-                   LogBox1.AppendText(" - 失败" + Environment.NewLine);
+                    LogBox1.AppendText(" - 失败" + Environment.NewLine);
                 }
             })
             .Subscribe(
                 _ => { },
                 ex => LogBox1.AppendText($"最终结果: {ex.Message}" + Environment.NewLine),
-                () => 
+                () =>
                 {
-                    if (!hasSuccess)
-                    {
-                        LogBox1.AppendText($"已达到最大尝试次数{maxAttempts}，未能抽到数字5" + Environment.NewLine);
-                    }
+                    if (!hasSuccess) LogBox1.AppendText($"已达到最大尝试次数{maxAttempts}，未能抽到数字5" + Environment.NewLine);
                     LogBox1.AppendText("抽奖过程结束" + Environment.NewLine);
                 }
             );

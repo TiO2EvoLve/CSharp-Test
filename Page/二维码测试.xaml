@@ -7,22 +7,28 @@
         Title="QRCoderTest" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        
+
         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,20,0,0">
-            <TextBox Text="https://www.baidu.com" Width="200" x:Name="TextBox"></TextBox>
-            <Button Width="80" Click="ButtonBase_OnClick" Height="40" Margin="10,0,0,0" Style="{StaticResource ButtonDashed}">生成二维码</Button>
-            <Button x:Name="savebutton" IsEnabled="False" Width="80" Click="Save" Height="40" Style="{StaticResource ButtonSuccess}" Margin="10,0,0,0">保存二维码</Button>
+            <TextBox Text="https://www.baidu.com" Width="200" x:Name="TextBox" />
+            <Button Width="80" Click="ButtonBase_OnClick" Height="40" Margin="10,0,0,0"
+                    Style="{StaticResource ButtonDashed}">
+                生成二维码
+            </Button>
+            <Button x:Name="savebutton" IsEnabled="False" Width="80" Click="Save" Height="40"
+                    Style="{StaticResource ButtonSuccess}" Margin="10,0,0,0">
+                保存二维码
+            </Button>
         </StackPanel>
-        
+
         <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Border BorderBrush="Black" BorderThickness="1" CornerRadius="5" Padding="10">
-                <Image x:Name="QrCodeImage" Width="200" Height="200"/>
+                <Image x:Name="QrCodeImage" Width="200" Height="200" />
             </Border>
-            
+
         </StackPanel>
-       
+
     </Grid>
 </Window>

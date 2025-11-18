@@ -22,7 +22,7 @@ public partial class Vpk文件格式测试
     {
         string file;
         //打开文件选择对话框
-        OpenFileDialog openFileDialog = new OpenFileDialog
+        var openFileDialog = new OpenFileDialog
         {
             Filter = "vpk文件|*.vpk",
             Title = "选择vpk文件"
@@ -32,54 +32,60 @@ public partial class Vpk文件格式测试
             if (openFileDialog.FileName == "") return;
             //读取文件内容
             file = openFileDialog.FileName;
-        }else return;
-        
+        }
+        else
+        {
+            return;
+        }
+
         using var package = new Package();
-        
+
         // 打开vpk文件
         package.Read(file);
-        
+
         // Can also pass in a stream
         //package.Read(File.OpenRead(file));
-        
+
         // 可选地验证文件的哈希值和签名（如果有的话）
         package.VerifyHashes();
-        
+
         // 查找文件，这将返回一个PackageEntry
         var files = package.FindEntry("materials/floors/cobblestone_001_color_psd_327322ec.vtex_c");
-        
-        
+
+
         if (files != null)
         {
             // 将文件读入字节数组
-            package.ReadEntry(files, out byte[] fileContents);
-            
+            package.ReadEntry(files, out var fileContents);
+
             using var resource = new Resource();
             resource.Read(new MemoryStream(fileContents));
-            
+
             //反编译为png图片
             using var bitmap = ((Texture)resource.DataBlock).GenerateBitmap();
             var bytes = TextureExtract.ToPngImage(bitmap);
             // 保存为png图片到桌面
             // 将字节数组转换为图片
-            using (MemoryStream ms = new MemoryStream(bytes))
+            using (var ms = new MemoryStream(bytes))
             {
-                using (Image image = Image.FromStream(ms))
+                using (var image = Image.FromStream(ms))
                 {
                     // 获取桌面路径
-                    string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                    string outputPath = Path.Combine(desktopPath, "output.png");
-        
+                    var desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                    var outputPath = Path.Combine(desktopPath, "output.png");
+
                     // 保存图片
                     image.Save(outputPath, ImageFormat.Png);
                     //提示保存成功
                     MessageBox.Show("导出成功");
                 }
             }
+
             Console.WriteLine("成功");
         }
-        else Console.WriteLine("未找到文件");
-        
+        else
+        {
+            Console.WriteLine("未找到文件");
+        }
     }
-    
 }

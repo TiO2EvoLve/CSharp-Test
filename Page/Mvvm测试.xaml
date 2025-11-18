@@ -7,14 +7,15 @@
         Title="MvvmTest" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <TextBlock Text="{Binding Number,Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24"/>
+        <TextBlock Text="{Binding Number,Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="24" />
         <StackPanel Grid.Row="1" Margin="20" Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBox Text="{Binding Number,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="200" Height="40"></TextBox>
+            <TextBox Text="{Binding Number,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="200" Height="40" />
         </StackPanel>
-        <Button Command="{Binding Button_ClickCommand}" Grid.Row="2" Content="清除"/>
+        <Button Command="{Binding Button_ClickCommand}" Grid.Row="2" Content="清除" />
     </Grid>
 </Window>

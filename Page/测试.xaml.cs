@@ -1,5 +1,4 @@
 using System.Windows;
-using NUnit.Framework;
 
 namespace Test.Page;
 
@@ -9,9 +8,8 @@ public partial class 测试 : Window
     {
         InitializeComponent();
     }
-    
+
     private void Test1(object sender, RoutedEventArgs e)
     {
-
     }
 }

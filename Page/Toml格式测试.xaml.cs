@@ -2,7 +2,6 @@ using System.IO;
 using System.Windows;
 using Tommy;
 
-
 namespace Test;
 
 public partial class Toml格式测试 : Window
@@ -14,20 +13,20 @@ public partial class Toml格式测试 : Window
 
     private void TomlFileTest(object sender, RoutedEventArgs e)
     {
-        string configPath = "Files/tomltest.toml";
-        
+        var configPath = "Files/tomltest.toml";
+
         TextReader tomlText = new StreamReader(configPath);
-            
+
         var table = TOML.Parse(tomlText);
 
         // 访问解析后的数据
-        Console.WriteLine((string)table["青岛"]["citycard"]); 
-           
+        Console.WriteLine((string)table["青岛"]["citycard"]);
+
         //遍历toml文件
         TraverseTomlTable(table);
-        
     }
-    void TraverseTomlTable(TomlTable table, string prefix = "")
+
+    private void TraverseTomlTable(TomlTable table, string prefix = "")
     {
         foreach (var key in table.Keys)
         {

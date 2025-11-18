@@ -14,17 +14,17 @@ public partial class Json测试
 
     private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
     {
-        string currentDirectory = Environment.CurrentDirectory;
+        var currentDirectory = Environment.CurrentDirectory;
 
         // 构建文件路径
-        string filePath = Path.Combine(currentDirectory, "Files", "test.json");
+        var filePath = Path.Combine(currentDirectory, "Files", "test.json");
         Console.WriteLine(filePath);
 
         if (!File.Exists(filePath)) return;
 
-        string jsonContent = File.ReadAllText(filePath);
+        var jsonContent = File.ReadAllText(filePath);
         // 解析 JSON 字符串为 JObject
-        JObject jsonObj = JObject.Parse(jsonContent);
+        var jsonObj = JObject.Parse(jsonContent);
         // 查询：获取某个属性
         Console.WriteLine("Name: " + jsonObj["name"]);
 
@@ -38,7 +38,7 @@ public partial class Json测试
         jsonObj.Remove("name");
 
         // 将 JObject 转换回 JSON 字符串
-        string modifiedJson = jsonObj.ToString();
+        var modifiedJson = jsonObj.ToString();
         Console.WriteLine(modifiedJson);
     }
 }

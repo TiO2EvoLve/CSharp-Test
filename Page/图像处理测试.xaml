@@ -8,12 +8,13 @@
     <Grid>
         <Grid>
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Orientation="Horizontal">
-                <Button Content="选择图像" Width="75" Click="SelectImageButton_Click"/>
-                <Button Content="添加水印" Width="75" Click="AddWatermarkButton_Click"/>
+                <Button Content="选择图像" Width="75" Click="SelectImageButton_Click" />
+                <Button Content="添加水印" Width="75" Click="AddWatermarkButton_Click" />
                 <Button Click="SaveImageButton_Click">保存图片</Button>
             </StackPanel>
-            <Border Height="300" Width="300" HorizontalAlignment="Center" Margin="10" BorderThickness="1" BorderBrush="Gray">
-                <Image x:Name="DisplayImage"  HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <Border Height="300" Width="300" HorizontalAlignment="Center" Margin="10" BorderThickness="1"
+                    BorderBrush="Gray">
+                <Image x:Name="DisplayImage" HorizontalAlignment="Center" VerticalAlignment="Center" />
             </Border>
         </Grid>
     </Grid>

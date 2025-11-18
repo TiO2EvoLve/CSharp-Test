@@ -8,7 +8,7 @@
         Title="Menu" Height="450" Width="800">
     <Grid>
         <!-- 自动布局按钮 -->
-        <UniformGrid x:Name="ButtonGrid" Columns="8" Rows="8" Margin="5"/>
-        
+        <UniformGrid x:Name="ButtonGrid" Columns="8" Rows="8" Margin="5" />
+
     </Grid>
 </Window>

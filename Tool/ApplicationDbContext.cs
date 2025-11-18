@@ -10,9 +10,8 @@ public class ApplicationDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (!optionsBuilder.IsConfigured)
-        {
             // 替换为你的实际连接字符串
-            optionsBuilder.UseSqlServer("Server=.;Database=test;User Id=sa;Password=12315;Encrypt=False;TrustServerCertificate=True");
-        }
+            optionsBuilder.UseSqlServer(
+                "Server=.;Database=test;User Id=sa;Password=12315;Encrypt=False;TrustServerCertificate=True");
     }
 }

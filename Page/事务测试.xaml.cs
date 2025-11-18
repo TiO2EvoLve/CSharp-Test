@@ -15,7 +15,7 @@ public partial class 事务测试 : Window
         try
         {
             // 创建一个TransactionScope
-            using (TransactionScope scope = new TransactionScope())
+            using (var scope = new TransactionScope())
             {
                 // 执行一些操作
                 PerformOperation1();
@@ -24,6 +24,7 @@ public partial class 事务测试 : Window
                 // 如果所有操作都成功，则提交事务
                 scope.Complete();
             }
+
             Console.WriteLine("事务成功提交！");
         }
         catch (Exception ex)
@@ -32,7 +33,8 @@ public partial class 事务测试 : Window
             Console.WriteLine("事务回滚，原因: " + ex.Message);
         }
     }
-    static void PerformOperation1()
+
+    private static void PerformOperation1()
     {
         // 模拟一个操作
         Console.WriteLine("执行操作1...");
@@ -40,7 +42,7 @@ public partial class 事务测试 : Window
         //throw new Exception("操作1失败");
     }
 
-    static void PerformOperation2()
+    private static void PerformOperation2()
     {
         // 模拟另一个操作
         Console.WriteLine("执行操作2...");

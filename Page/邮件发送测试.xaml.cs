@@ -1,7 +1,6 @@
-using System.ComponentModel.DataAnnotations;
-using System.Windows;
 using System.Net;
 using System.Net.Mail;
+using System.Windows;
 
 namespace Test;
 
@@ -11,12 +10,13 @@ public partial class 邮件发送测试 : Window
     {
         InitializeComponent();
     }
+
     public void SendEmail(string fromEmail, string password, string toEmail, string subject, string body)
     {
         try
         {
             // 创建一个MailMessage对象
-            MailMessage mail = new MailMessage();
+            var mail = new MailMessage();
 
             // 设置发件人地址
             mail.From = new MailAddress(fromEmail);
@@ -31,7 +31,7 @@ public partial class 邮件发送测试 : Window
             mail.Body = body;
 
             // 创建一个SmtpClient对象，用于发送邮件
-            SmtpClient smtpClient = new SmtpClient("smtp.qq.com", 587); // 替换为实际的SMTP服务器和端口
+            var smtpClient = new SmtpClient("smtp.qq.com", 587); // 替换为实际的SMTP服务器和端口
 
             // 设置SMTP客户端的认证信息
             smtpClient.Credentials = new NetworkCredential(fromEmail, password);
@@ -54,11 +54,11 @@ public partial class 邮件发送测试 : Window
 
     private void SendButton_Click(object sender, RoutedEventArgs e)
     {
-        string fromEmail = FromEmailTextBox.Text;
-        string password = PasswordTextBox.Password;
-        string toEmail = ToEmailTextBox.Text;
-        string subject = SubjectTextBox.Text;
-        string body = BodyTextBox.Text;
+        var fromEmail = FromEmailTextBox.Text;
+        var password = PasswordTextBox.Password;
+        var toEmail = ToEmailTextBox.Text;
+        var subject = SubjectTextBox.Text;
+        var body = BodyTextBox.Text;
 
         SendEmail(fromEmail, password, toEmail, subject, body);
     }

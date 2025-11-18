@@ -1,5 +1,4 @@
 using System.Windows;
-using System.Windows.Controls;
 using Test.Tool;
 
 namespace Test;
@@ -13,12 +12,9 @@ public partial class Mdb测试 : Window
 
     private void MdbFileTest(object sender, RoutedEventArgs e)
     {
-        string sql = "Select NUM From kahao";
-        List<string> select = MdbTool.Select(sql);
+        var sql = "Select NUM From kahao";
+        var select = MdbTool.Select(sql);
 
-        foreach (var item in select)
-        {
-            Console.WriteLine(item);
-        }
+        foreach (var item in select) Console.WriteLine(item);
     }
 }

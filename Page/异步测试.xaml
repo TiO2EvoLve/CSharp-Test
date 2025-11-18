@@ -11,23 +11,26 @@
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        
+
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-           <Label Margin="20" Height="100" Width="100" x:Name="Label1">
-               <TextBlock x:Name="任务1" Text="任务一"  FontSize="15"></TextBlock>
-           </Label>
-           <Label Margin="20" Height="100" Width="100" x:Name="Label2">
-               <TextBlock x:Name="任务2" Text="任务二"  FontSize="15"></TextBlock>
-           </Label>
-           <Label Margin="20" Height="100" Width="100" x:Name="Label3">
-               <TextBlock x:Name="任务3" Text="任务三"  FontSize="15"></TextBlock>
-           </Label>
+            <Label Margin="20" Height="100" Width="100" x:Name="Label1">
+                <TextBlock x:Name="任务1" Text="任务一" FontSize="15" />
+            </Label>
+            <Label Margin="20" Height="100" Width="100" x:Name="Label2">
+                <TextBlock x:Name="任务2" Text="任务二" FontSize="15" />
+            </Label>
+            <Label Margin="20" Height="100" Width="100" x:Name="Label3">
+                <TextBlock x:Name="任务3" Text="任务三" FontSize="15" />
+            </Label>
         </StackPanel>
-        
+
         <StackPanel Grid.Row="1">
-            <Button Background="DeepSkyBlue" Click="Button_OnClick"  HorizontalAlignment="Center" Width="100" Height="50">Start</Button>
-            <TextBlock Text="" x:Name="text" HorizontalAlignment="Center" Foreground="Red" Margin="0,20,0,0"></TextBlock>
+            <Button Background="DeepSkyBlue" Click="Button_OnClick" HorizontalAlignment="Center" Width="100"
+                    Height="50">
+                Start
+            </Button>
+            <TextBlock Text="" x:Name="text" HorizontalAlignment="Center" Foreground="Red" Margin="0,20,0,0" />
         </StackPanel>
-       
+
     </Grid>
 </Window>
