@@ -39,7 +39,8 @@ public partial class MainWindow : Window
             ["进度条"] = () => new 进度条测试(),
             ["文件修改"] = () => new 文件修改测试(),
             ["响应式"] = () => new 响应式(),
-            ["Test"] = () => new 测试()
+            ["Test"] = () => new 测试(),
+            ["时间调度"] = () => new 时间调度测试()
         };
 
         CreateButtons();
