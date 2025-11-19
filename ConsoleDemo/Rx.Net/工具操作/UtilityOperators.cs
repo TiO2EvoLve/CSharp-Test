@@ -16,6 +16,8 @@ public class UtilityOperators
             .Timestamp()
             .Subscribe(ts =>
                 Console.WriteLine($"Timestamp: Value={ts.Value}, Time={ts.Timestamp:HH:mm:ss.fff}"));
+        //输出：
+        //1
 
         // 2. TimeInterval - 计算时间间隔
         Observable.Interval(TimeSpan.FromMilliseconds(300))
