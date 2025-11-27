@@ -6,7 +6,6 @@ public class Pipeline风格
     {
         var result = 5.Pipe(x => x + 1)
                 .Pipe(x => x * 10);
-
         Console.WriteLine(result); // 60
     }
 }

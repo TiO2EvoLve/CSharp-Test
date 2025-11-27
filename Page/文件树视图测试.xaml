@@ -21,10 +21,10 @@
                         <Image Width="16" Height="16" Margin="0,0,5,0">
                             <Image.Style>
                                 <Style TargetType="Image">
-                                    <Setter Property="Source" Value="Images/Folder.png" />
+                                    <Setter Property="Source" Value="/Test;component/images/Folder.png" />
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding IsDirectory}" Value="False">
-                                            <Setter Property="Source" Value="Images/File.png" />
+                                            <Setter Property="Source" Value="/Test;component/images/File.png" />
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>

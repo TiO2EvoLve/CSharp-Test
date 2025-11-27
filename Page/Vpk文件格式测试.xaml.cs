@@ -66,20 +66,10 @@ public partial class Vpk文件格式测试
             var bytes = TextureExtract.ToPngImage(bitmap);
             // 保存为png图片到桌面
             // 将字节数组转换为图片
-            using (var ms = new MemoryStream(bytes))
-            {
-                using (var image = Image.FromStream(ms))
-                {
-                    // 获取桌面路径
-                    var desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                    var outputPath = Path.Combine(desktopPath, "output.png");
-
-                    // 保存图片
-                    image.Save(outputPath, ImageFormat.Png);
-                    //提示保存成功
-                    MessageBox.Show("导出成功");
-                }
-            }
+            var desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            var outputPath = Path.Combine(desktopPath, "output.png");
+            File.WriteAllBytes(outputPath, bytes);
+            
 
             Console.WriteLine("成功");
         }

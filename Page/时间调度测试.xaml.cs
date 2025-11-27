@@ -1,13 +1,7 @@
-using System.Collections.ObjectModel;
+
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Threading;
-using HandyControl.Controls;
-using HandyControl.Data;
 using Quartz;
 using Quartz.Impl;
-using MessageBox = System.Windows.MessageBox;
-using TextBox = System.Windows.Controls.TextBox;
 using Window = System.Windows.Window;
 
 namespace Test.Page;
