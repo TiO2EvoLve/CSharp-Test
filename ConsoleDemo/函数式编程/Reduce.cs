@@ -4,7 +4,7 @@ public class Reduce
 {
     public static void Run()
     {
-        int sum = new[] { 1, 2, 3, 4 }.Aggregate((a, b) => a + b);
+        var sum = new[] { 1, 2, 3, 4 }.Aggregate((a, b) => a + b);
         Console.WriteLine(sum); // 10
     }
 }

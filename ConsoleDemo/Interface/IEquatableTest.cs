@@ -11,23 +11,30 @@ public class IEquatableTest
 
         Console.WriteLine(person1.Equals(person2)); // true - 调用IEquatable<T>.Equals
         Console.WriteLine(person1.Equals((object)person2)); // true - 调用object.Equals
-    } 
+    }
 }
+
 public class Person : IEquatable<Person>
 {
     public string Name { get; set; }
     public int Age { get; set; }
-    
+
     // 实现IEquatable<T>
     public bool Equals(Person other)
     {
         if (other is null) return false;
         return Name == other.Name && Age == other.Age;
     }
-    
+
     // 重写Object.Equals保持一致性
-    public override bool Equals(object obj) => Equals(obj as Person);
-    
+    public override bool Equals(object obj)
+    {
+        return Equals(obj as Person);
+    }
+
     // 重写GetHashCode很重要！
-    public override int GetHashCode() => HashCode.Combine(Name, Age);
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(Name, Age);
+    }
 }

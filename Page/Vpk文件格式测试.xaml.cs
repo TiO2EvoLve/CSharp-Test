@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
+﻿using System.IO;
 using System.Windows;
 using Microsoft.Win32;
 using SteamDatabase.ValvePak;
@@ -69,7 +67,7 @@ public partial class Vpk文件格式测试
             var desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             var outputPath = Path.Combine(desktopPath, "output.png");
             File.WriteAllBytes(outputPath, bytes);
-            
+
 
             Console.WriteLine("成功");
         }

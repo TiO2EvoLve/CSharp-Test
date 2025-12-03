@@ -15,7 +15,7 @@ public partial class Mdb测试 : Window
         var sql = "Select NUM From kahao";
         var select = MdbTool.Select(sql);
 
-        foreach (var item in select) 
+        foreach (var item in select)
             Console.WriteLine(item);
     }
 }

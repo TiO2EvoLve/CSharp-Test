@@ -40,7 +40,8 @@ public partial class MainWindow : Window
             ["文件修改"] = () => new 文件修改测试(),
             ["响应式"] = () => new 响应式(),
             ["Test"] = () => new 测试(),
-            ["时间调度"] = () => new 时间调度测试()
+            ["时间调度"] = () => new 时间调度测试(),
+            ["状态机"] = () => new 状态机测试()
         };
 
         CreateButtons();

@@ -16,13 +16,20 @@ public class Monads风格
         Console.WriteLine(result.HasValue ? result.Value : 0); // 20
     }
 }
+
 public struct Maybe<T>
 {
     public T Value { get; }
     public bool HasValue { get; }
 
-    public Maybe(T value) { Value = value; HasValue = true; }
+    public Maybe(T value)
+    {
+        Value = value;
+        HasValue = true;
+    }
 
     public Maybe<TResult> Bind<TResult>(Func<T, Maybe<TResult>> func)
-        => HasValue ? func(Value) : new Maybe<TResult>();
+    {
+        return HasValue ? func(Value) : new Maybe<TResult>();
+    }
 }

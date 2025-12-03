@@ -9,52 +9,37 @@ public class IEnumeratorTest
     {
         Console.WriteLine("=== DaysOfWeek (手动实现IEnumerator) ===");
         var days = new DaysOfWeek();
-        foreach (string day in days)
-        {
-            Console.WriteLine($"今天是：{day}");
-        }
+        foreach (string day in days) Console.WriteLine($"今天是：{day}");
 
         Console.WriteLine("\n=== NumberSequence (使用yield return) ===");
         var numbers = new NumberSequence(10, 5);
-        foreach (int num in numbers)
-        {
-            Console.WriteLine($"数字：{num}");
-        }
+        foreach (var num in numbers) Console.WriteLine($"数字：{num}");
 
         Console.WriteLine("\n=== SmartCollection (泛型集合) ===");
         var smartCollection = new SmartCollection<string>("Apple", "Banana", "Cherry");
         smartCollection.Add("Date");
 
-        foreach (var fruit in smartCollection)
-        {
-            Console.WriteLine($"水果：{fruit}");
-        }
+        foreach (var fruit in smartCollection) Console.WriteLine($"水果：{fruit}");
 
         Console.WriteLine("\n=== 与LINQ结合使用 ===");
         var evenNumbers = new NumberSequence(1, 10)
             .Where(n => n % 2 == 0)
             .Select(n => n * 2);
 
-        foreach (var num in evenNumbers)
-        {
-            Console.WriteLine($"偶数乘以2：{num}");
-        }
+        foreach (var num in evenNumbers) Console.WriteLine($"偶数乘以2：{num}");
 
         Console.WriteLine("\n=== 直接使用枚举器 ===");
         DemonstrateEnumerator();
     }
 
-    static void DemonstrateEnumerator()
+    private static void DemonstrateEnumerator()
     {
         var collection = new SmartCollection<int>(1, 2, 3, 4, 5);
-        IEnumerator<int> enumerator = collection.GetEnumerator();
+        var enumerator = collection.GetEnumerator();
 
         try
         {
-            while (enumerator.MoveNext())
-            {
-                Console.WriteLine($"当前元素：{enumerator.Current}");
-            }
+            while (enumerator.MoveNext()) Console.WriteLine($"当前元素：{enumerator.Current}");
 
             // 尝试在结束后访问Current会抛出异常
             // Console.WriteLine(enumerator.Current); // 这会抛出InvalidOperationException
@@ -68,8 +53,8 @@ public class IEnumeratorTest
 
 // 示例1：手动实现IEnumerable（非泛型）
 public class DaysOfWeek : IEnumerable
-    { 
-    private string[] days = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+{
+    private readonly string[] days = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 
     // 实现GetEnumerator方法
     public IEnumerator GetEnumerator()
@@ -80,7 +65,7 @@ public class DaysOfWeek : IEnumerable
     // 自定义枚举器
     private class DaysEnumerator : IEnumerator
     {
-        private string[] days;
+        private readonly string[] days;
         private int position = -1;
 
         public DaysEnumerator(string[] daysArray)
@@ -110,11 +95,12 @@ public class DaysOfWeek : IEnumerable
         }
     }
 }
+
 // 示例2：使用yield return简化实现（泛型）
 public class NumberSequence : IEnumerable<int>
 {
-    private int start;
-    private int count;
+    private readonly int count;
+    private readonly int start;
 
     public NumberSequence(int start, int count)
     {
@@ -124,10 +110,7 @@ public class NumberSequence : IEnumerable<int>
 
     public IEnumerator<int> GetEnumerator()
     {
-        for (int i = 0; i < count; i++)
-        {
-            yield return start + i;
-        }
+        for (var i = 0; i < count; i++) yield return start + i;
     }
 
     // 显式实现非泛型接口
@@ -136,6 +119,7 @@ public class NumberSequence : IEnumerable<int>
         return GetEnumerator();
     }
 }
+
 // 示例3：更复杂的自定义集合
 public class SmartCollection<T> : IEnumerable<T>
 {
@@ -146,23 +130,20 @@ public class SmartCollection<T> : IEnumerable<T>
         items = initialItems ?? new T[0];
     }
 
-    public void Add(T item)
-    {
-        Array.Resize(ref items, items.Length + 1);
-        items[items.Length - 1] = item;
-    }
-
     public IEnumerator<T> GetEnumerator()
     {
         // 使用yield return的简单实现
-        foreach (var item in items)
-        {
-            yield return item;
-        }
+        foreach (var item in items) yield return item;
     }
 
     IEnumerator IEnumerable.GetEnumerator()
     {
         return GetEnumerator();
+    }
+
+    public void Add(T item)
+    {
+        Array.Resize(ref items, items.Length + 1);
+        items[items.Length - 1] = item;
     }
 }

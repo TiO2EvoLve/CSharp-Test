@@ -12,10 +12,10 @@ public class IMemoryOwnerTest
 
     private static async Task ProcessDataAsync()
     {
-        using (IMemoryOwner<byte> buffer = MemoryPool<byte>.Shared.Rent(1024))
+        using (var buffer = MemoryPool<byte>.Shared.Rent(1024))
         {
             // 使用内存缓冲区
-            Memory<byte> memory = buffer.Memory;
+            var memory = buffer.Memory;
 
             // 模拟异步数据处理
             await ProcessMemoryAsync(memory.Slice(0, 100));

@@ -20,24 +20,25 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Autofac" Version="9.0.0" />
+        <PackageReference Include="Autofac" Version="9.0.0"/>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0"/>
         <PackageReference Include="DeepSeek.Sdk" Version="1.0.5"/>
         <PackageReference Include="HandyControl" Version="3.5.1"/>
         <PackageReference Include="HandyControls.Lang.zh-CN" Version="3.6.0"/>
         <PackageReference Include="Markdig.Wpf" Version="0.5.0.1"/>
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.0" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.0" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.0"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.0"/>
         <PackageReference Include="Newtonsoft.Json" Version="13.0.4"/>
-        <PackageReference Include="QRCoder" Version="1.7.0" />
-        <PackageReference Include="Quartz" Version="3.15.1" />
+        <PackageReference Include="QRCoder" Version="1.7.0"/>
+        <PackageReference Include="Quartz" Version="3.15.1"/>
+        <PackageReference Include="Stateless" Version="5.20.0"/>
         <PackageReference Include="System.Data.OleDb" Version="10.0.0"/>
-        <PackageReference Include="System.Reactive" Version="6.1.0" />
-        <PackageReference Include="System.Reactive.Linq" Version="6.1.0" />
-        <PackageReference Include="System.Reactive.Windows.Threading" Version="6.1.0" />
+        <PackageReference Include="System.Reactive" Version="6.1.0"/>
+        <PackageReference Include="System.Reactive.Linq" Version="6.1.0"/>
+        <PackageReference Include="System.Reactive.Windows.Threading" Version="6.1.0"/>
         <PackageReference Include="Tommy" Version="3.1.2"/>
-        <PackageReference Include="ValvePak" Version="4.0.0.142" />
-        <PackageReference Include="ValveResourceFormat" Version="16.0.5103" />
+        <PackageReference Include="ValvePak" Version="4.0.0.142"/>
+        <PackageReference Include="ValveResourceFormat" Version="16.0.5103"/>
     </ItemGroup>
 
     <ItemGroup>
@@ -186,18 +187,18 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="images\Folder.png" />
-      <Resource Include="images\Folder.png">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
-      <None Remove="images\File.png" />
-      <Resource Include="images\File.png">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
-      <None Remove="images\Code.png" />
-      <Resource Include="images\Code.png">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
+        <None Remove="images\Folder.png"/>
+        <Resource Include="images\Folder.png">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
+        <None Remove="images\File.png"/>
+        <Resource Include="images\File.png">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
+        <None Remove="images\Code.png"/>
+        <Resource Include="images\Code.png">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Resource>
     </ItemGroup>
 
 </Project>

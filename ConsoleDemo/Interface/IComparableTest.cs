@@ -9,9 +9,9 @@ public class IComparableTest
         // 使用示例
         var products = new List<Product>
         {
-            new Product { Name = "Laptop", Price = 999.99m },
-            new Product { Name = "Mouse", Price = 29.99m },
-            new Product { Name = "Keyboard", Price = 79.99m }
+            new() { Name = "Laptop", Price = 999.99m },
+            new() { Name = "Mouse", Price = 29.99m },
+            new() { Name = "Keyboard", Price = 79.99m }
         };
 
 // 使用自然排序（按价格）
@@ -38,7 +38,10 @@ public class Product : IComparable<Product>
         return Price.CompareTo(other.Price);
     }
 
-    public override string ToString() => $"{Name}: {Price:C}";
+    public override string ToString()
+    {
+        return $"{Name}: {Price:C}";
+    }
 }
 
 // 自定义比较器

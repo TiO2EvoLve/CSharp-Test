@@ -31,6 +31,7 @@ public static class MdbTool
             {
                 Console.WriteLine($"Error: {ex.Message}");
             }
+
             return null;
         }
     }
