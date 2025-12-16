@@ -12,7 +12,7 @@ public partial class 时间调度测试 : Window
         InitializeComponent();
     }
 
-    private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+    private void StartTime(object sender, RoutedEventArgs e)
     {
         Run().GetAwaiter().GetResult();
     }
@@ -36,7 +36,7 @@ public partial class 时间调度测试 : Window
         // 4. 创建一个触发器（Trigger）
         var trigger = TriggerBuilder.Create()
             .WithIdentity("noonTrigger", "group1") // 设置触发器的唯一标识和组名
-            .WithCronSchedule("0 9 14 * * ?") //
+            .WithCronSchedule("0 0/1 * * * ?") //每分钟
             .Build();
 
         // 5. 将作业和触发器添加到调度器中

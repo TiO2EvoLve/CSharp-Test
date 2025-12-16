@@ -6,6 +6,6 @@
         mc:Ignorable="d"
         Title="时间调度测试" Height="450" Width="800">
     <Grid>
-        <Button Click="ButtonBase_OnClick">时间调度</Button>
+        <Button Click="StartTime">时间调度</Button>
     </Grid>
 </Window>

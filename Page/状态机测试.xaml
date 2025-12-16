@@ -24,7 +24,7 @@
                                HorizontalAlignment="Center"
                                VerticalAlignment="Center"
                                FontSize="16" FontWeight="Bold"
-                               Foreground="White" />
+                               Foreground="Red" />
                 </Border>
 
                 <TextBlock Text="{Binding StatusMessage}"
